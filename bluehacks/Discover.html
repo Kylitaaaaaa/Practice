@@ -39,17 +39,60 @@
 			    <p class="card-text">Desc here</p>
 			  </div>
 			  <ul class="list-group list-group-flush">
-			    <button class="btn btn-lg btn-primary btn-block"  data-toggle="modal" data-target="#myModal">See More</button>  	
+
+			    <button class="btn btn-lg btn-primary btn-block" onclick="setupModal(0)" data-toggle="modal" data-target="#myModal">Donate</button>  	
 			  </ul>
 			</div>
 		  <div class="card" style="width: 20rem;">
-			  <img class="card-img-top" src="/Users/Thea/Desktop/Practice/bluehacks/pics/mangyan.jpg" alt="Card image cap">
+			  <img class="card-img-top" src="/Users/Thea/Desktop/Practice/bluehacks/pics/alzheimers.jpg" alt="Card image cap">
 			  <div class="card-block">
-			    <h4 class="card-title">Mangyan</h4>
+			    <h4 class="card-title">Alzheimer's</h4>
 			    <p class="card-text">Sample Text here.</p>
 			  </div>
 			  <ul class="list-group list-group-flush">
-			    <button class="btn btn-lg btn-primary btn-block"  onclick="setupData()">See More</button>  	
+			    <button class="btn btn-lg btn-primary btn-block" onclick="setupModal(1)" data-toggle="modal" data-target="#myModal">Donate</button>  	
+			  </ul>
+			</div>
+
+			<div class="card" style="width: 20rem;">
+			  <img class="card-img-top" src="/Users/Thea/Desktop/Practice/bluehacks/pics/blind.jpg" alt="Card image cap">
+			  <div class="card-block">
+			    <h4 class="card-title">Blind</h4>
+			    <p class="card-text">Desc here</p>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <button class="btn btn-lg btn-primary btn-block"  onclick="setupModal(2)" data-toggle="modal" data-target="#myModal">Donate</button>  	
+			  </ul>
+			</div>
+		  <div class="card" style="width: 20rem;">
+			  <img class="card-img-top" src="/Users/Thea/Desktop/Practice/bluehacks/pics/deaf.jpg" alt="Card image cap">
+			  <div class="card-block">
+			    <h4 class="card-title">Deaf</h4>
+			    <p class="card-text">Sample Text here.</p>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <button class="btn btn-lg btn-primary btn-block" onclick="setupModal(3)"  data-toggle="modal" data-target="#myModal">Donate</button>  	
+			  </ul>
+			</div>
+
+			<div class="card" style="width: 20rem;">
+			  <img class="card-img-top" src="/Users/Thea/Desktop/Practice/bluehacks/pics/mangyan.jpg" alt="Card image cap">
+			  <div class="card-block">
+			    <h4 class="card-title">Mangyan</h4>
+			    <p class="card-text">Desc here</p>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <button class="btn btn-lg btn-primary btn-block" onclick="setupModal(4)"  data-toggle="modal" data-target="#myModal">Donate</button>  	
+			  </ul>
+			</div>
+		  <div class="card" style="width: 20rem;">
+			  <img class="card-img-top" src="/Users/Thea/Desktop/Practice/bluehacks/pics/tboli.jpg" alt="Card image cap">
+			  <div class="card-block">
+			    <h4 class="card-title">Tboli</h4>
+			    <p class="card-text">Sample Text here.</p>
+			  </div>
+			  <ul class="list-group list-group-flush">
+			    <button class="btn btn-lg btn-primary btn-block" onclick="setupModal(5)"  data-toggle="modal" data-target="#myModal">Donate</button>  	
 			  </ul>
 			</div>
 	</div>
@@ -63,13 +106,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Aeta</h4>
+          <h4 class="modal-title" id="titleModal">Aeta</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+            <label for="inputdefault">How much will you donate?</label>
+      		<input class="form-control" id="inputdefault" type="number">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Donate</button>
+          <button type="button" class="btn btn-default" onclick="donate()" data-dismiss="modal">Okay</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
       </div>
@@ -78,16 +122,36 @@
   </div>
 
   <script type="text/javascript">
-  	function setupData() {
-  		var peopleList = [];
-    	peopleList.push({ 	'id'	: 	1, 
+	window.onload = function () {
+	    var peopleList = [];
+    	peopleList.push({ 	'id'	: 	0, 
     						'name'	: 	"Aeta", 
     						'desc'	: 	"Aeta Desc", 
     						'currFunds'	: 	0.00 });
 
+    	peopleList.push({ 	'id'	: 	1, 
+    						'name'	: 	"Alzheimer's", 
+    						'desc'	: 	"Alzheimer Desc", 
+    						'currFunds'	: 	0.00 });
+
     	peopleList.push({ 	'id'	: 	2, 
-    						'name'	: 	"Malay", 
-    						'desc'	: 	"Malay Desc", 
+    						'name'	: 	"Blind", 
+    						'desc'	: 	"Blind Desc", 
+    						'currFunds'	: 	0.00 });
+
+    	peopleList.push({ 	'id'	: 	3, 
+    						'name'	: 	"Deaf", 
+    						'desc'	: 	"Deaf Desc", 
+    						'currFunds'	: 	0.00 });
+
+    	peopleList.push({ 	'id'	: 	4, 
+    						'name'	: 	"Mangyan", 
+    						'desc'	: 	"Mangyan Desc", 
+    						'currFunds'	: 	0.00 });
+
+    	peopleList.push({ 	'id'	: 	5, 
+    						'name'	: 	"Tboli", 
+    						'desc'	: 	"Tboli Desc", 
     						'currFunds'	: 	0.00 });
 
     	localStorage.setItem("peopleList", JSON.stringify(peopleList));
@@ -97,9 +161,38 @@
     	console.log(temp);
 
     	console.log(temp[0]);
+	}
+
+	function donate(){
+		var id = localStorage.currPeople;
+
+		var donation = document.getElementById('inputdefault').value;
+		var tempList = JSON.parse(localStorage.getItem("peopleList"));
+		console.log(tempList);
+		var temp = tempList[id];
+		console.log(temp.currFunds);
+		temp.currFunds = +temp.currFunds + +donation;
+		localStorage.setItem("peopleList", JSON.stringify(tempList));
+
+		console.log(tempList);
+		console.log("done");
+	}	
+
+	function setupModal(id){	
+
+		localStorage.setItem("currPeople", id);
+
+		var tempList = JSON.parse(localStorage.getItem("peopleList"));
+		temp = tempList[id];
+		console.log("TANGINA");
+		console.log(temp);
+
+		console.log("asdf");
+		console.log(temp.name);
+
+		document.getElementById('titleModal').value(temp.name);
 
 
-    	
 	}
   </script>
 
