@@ -182,18 +182,18 @@
 							'goalFunds' :  20000.00,
 							'video' : "FgE94-jkL7Y",
 							'location' : "South Cotabato",
-							'category': "Indigenous People"}); });
+							'category': "Indigenous People"}); 
 
     	localStorage.setItem("peopleList", JSON.stringify(peopleList));
     	console.log(localStorage.peopleList);
 
     	var temp = JSON.parse(localStorage.getItem("userList"));
 		
-		var idUser = localStorage.getItem(currUserId);
+		var idUser = localStorage.getItem("currUserId");
 		
 		var money = temp[idUser].currBal;
 		
-		document.getElementById('money').value = "Php " + money;
+		document.getElementById('money').innerHTML = "Php " + money + ".00";
 		
     	console.log(temp);
 
