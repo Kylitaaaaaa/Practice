@@ -14,25 +14,27 @@
 	</head>
 
 	<body>
-			<form class="form-signin" style="width: 30%; margin: auto">
-			<div class="text-center mb-4">
+		<form class="form-signin" style="width: 30%; margin: auto" onsubmit="return check()" action="Discover.html">
+			<div class="text-center mb-4" style="width: 30%; margin: auto">
 			  <img class="mb-4" src="logo_square.png" alt="" width="72" height="72">
 			  <h1 class="h3 mb-3 font-weight-normal">GoPondo</h1>
 			  <p>Let's start making the world a better place.</p>
 			</div>
 	  
 			<div class="form-label-group">
-			  <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-			  <label for="inputEmail">Username</label>
+			  <input type="text" id="uName" class="form-control" placeholder="Username" required autofocus>
+			  <label for="uName">Username</label>
 			</div>
 	  
 			<div class="form-label-group">
-			  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-			  <label for="inputPassword">Password</label>
+			  <input type="password" id="password" class="form-control" placeholder="Password" required>
+			  <label for="password">Password</label>
 			</div>
 	  
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
 			<p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+
+
 		  </form>
 
 		<script>
@@ -60,12 +62,18 @@
 				var uName = document.getElementById("uName").value;
 				var password = document.getElementById("password").value;
 
+				alert(uName);
+				alert(password);
+
 				var userList = JSON.parse(localStorage.getItem("userList"));
+
+				alert(userList.length);
 
 				for (var i = 0; i < userList.length; i++) {
 				   if(userList[i].uName == uName && userList[i].password == password){
 				   		localStorage.setItem("currUserId", i);
-				   		window.location.replace("Discover.html");
+				   		console.log("yay");
+				   		// window.location.replace("Discover.html");
 				   	}
 				}
 
