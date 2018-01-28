@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Do Tasks</title>
+    <title>Video Task</title>
   </head>
   <body>
 
@@ -31,21 +31,32 @@
 	</nav>
 
 	<div class="centerDiv">
-		<div class="card w-75">
-		  <div class="card-block">
-		    <h3 class="card-title">Image Annotation</h3>
-		    <p class="card-text">Sample text here.</p>
-		    <a href="#" class="btn btn-primary" id="doTaskImage">Do Task</a>
-		  </div>
+		<div class="embed-responsive embed-responsive-16by9">
+		  <iframe class="embed-responsive-item" src="https://youtu.be/epcc9X1aS7o" allowfullscreen></iframe>
 		</div>
-		<div class="card w-75">
-		  <div class="card-block">
-		    <h3 class="card-title">Video Annotation</h3>
-		    <p class="card-text">Video text here</p>
-		    <a href="VideoTask.html" class="btn btn-primary" id="doTaskVid">Do Task</a>
-		  </div>
-		</div>
+
+    <div class="modal-body">
+      <label for="inputdefault">What does the video say?</label>
+      <input class="form-control" id="inputdefault" type="text">
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" onclick="submitAnswer()">Submit</button>    
 	</div>
+
+  <script type="text/javascript">
+    function submitAnswer(){
+      var userList = JSON.parse(localStorage.getItem("userList"));
+      var id = localStorage.getItem("currUserId");
+      var user = userList[id];
+
+      user.currBal = +user.currBal + +100;
+
+      userList[id] = user;
+
+      localStorage.setItem("userList", JSON.stringify(userList));
+      console.log("yay");
+    }
+  </script>
 
 
     <!-- Optional JavaScript -->
