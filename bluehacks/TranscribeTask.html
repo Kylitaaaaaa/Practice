@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Video Task</title>
+    <title>Audio Task</title>
   </head>
   <body>
 
@@ -29,14 +29,19 @@
 	  </ul>
 
 	</nav>
-
+	
 	<div class="centerDiv">
-		<div class="embed-responsive embed-responsive-16by9">
-		  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6U5hK8pOD_0?autoplay=1" allowfullscreen autoplay></iframe>
-		</div>
+		
+			<div style="position:relative;width:267px;height:25px;overflow:hidden;">
+				<div style="position:absolute;top:-300px;left:-5px">
+					<iframe width="300" height="300" 
+						src="https://www.youtube.com/embed/jiMnyQXQ0bE?autoplay=1">
+					</iframe>
+				</div>
+			</div>
 
     <div class="modal-body">
-      <label for="inputdefault">What does the video say?</label>
+      <label for="inputdefault">Type what you hear from the audio</label>
       <input class="form-control" id="inputdefault" type="text">
     </div>
 
