@@ -18,6 +18,9 @@
     <nav class="navbar navbar-expand-sm bg-white">
 		<img src="logo.png" alt="logo" style="height: 5rem; padding-left: 9%">
 	  <ul class="navbar-nav ml-auto">
+		<li class="nav-item">
+	      <a class="nav-link" href="#" id="money">Php 0.00</a>
+	    </li>
 	    <li class="nav-item">
 	      <a class="nav-link" href="Discover.html">Discover</a>
 	    </li>
@@ -184,10 +187,19 @@
     	localStorage.setItem("peopleList", JSON.stringify(peopleList));
     	console.log(localStorage.peopleList);
 
-    	var temp = JSON.parse(localStorage.getItem("peopleList"));
+    	var temp = JSON.parse(localStorage.getItem("userList"));
+		
+		var idUser = localStorage.getItem(currUserId);
+		
+		var money = temp[idUser].currBal;
+		
+		document.getElementById('money').value = "Php " + money;
+		
     	console.log(temp);
 
     	console.log(temp[0]);
+		
+		
 	}
 
 	function donate(){
